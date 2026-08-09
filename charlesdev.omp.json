@@ -34,28 +34,13 @@
           "type": "exit",
           "style": "plain",
           "foreground": "#ff5555",
-          "template": "✘ "
+          "template": "✘ | {{ .Code }} -> {{ .Code | hresult }}"
         },
         {
           "type": "text",
           "style": "plain",
           "foreground": "#50fa7b",
           "template": "❯ "
-        }
-      ]
-    },
-    {
-      "type": "prompt",
-      "alignment": "right",
-      "segments": [
-        {
-          "type": "executiontime",
-          "style": "plain",
-          "foreground": "#f1fa8c",
-          "options": {
-            "threshold": 500
-          },
-          "template": " {{ .FormattedMs }}"
         }
       ]
     }
@@ -90,7 +75,7 @@
       "background": "transparent",
       "leading_diamond": "",
       "trailing_diamond": "",
-      "template": "{{ .HEAD }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}"
+      "template": "{{ .HEAD }}"
     },
     {
       "type": "node",
