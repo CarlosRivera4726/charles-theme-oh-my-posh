@@ -10,7 +10,9 @@
           "type": "path",
           "style": "plain",
           "foreground": "#8be9fd",
-          "properties": { "style": "folder" },
+          "options": {
+            "style": "folder"
+          },
           "template": "{{ .Folder }} "
         },
         {
@@ -23,7 +25,9 @@
           "type": "git",
           "style": "plain",
           "foreground": "#ffb86c",
-          "properties": { "fetch_status": true },
+          "options": {
+            "fetch_status": true
+          },
           "template": ":: {{ .HEAD }}{{ if .Working.Changed }}*{{ end }} "
         },
         {
@@ -41,17 +45,65 @@
       ]
     },
     {
+      "type": "prompt",
+      "alignment": "right",
       "segments": [
         {
           "type": "executiontime",
           "style": "plain",
           "foreground": "#f1fa8c",
-          "properties": {
+          "options": {
             "threshold": 500
           },
           "template": " {{ .FormattedMs }}"
         }
       ]
+    }
+  ],
+  "tooltips_action": "extend",
+  "tooltips": [
+    {
+      "type": "git",
+      "tips": [
+        "git",
+        "g"
+      ],
+      "style": "diamond",
+      "foreground": "#50fa7b",
+      "background": "transparent",
+      "leading_diamond": "",
+      "trailing_diamond": "",
+      "template": "{{ .HEAD }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}",
+      "options": {
+        "fetch_status": true,
+        "fetch_upstream_icon": true
+      }
+    },
+    {
+      "type": "pnpm",
+      "tips": [
+        "pnpm",
+        "p"
+      ],
+      "style": "diamond",
+      "foreground": "#50fa7b",
+      "background": "transparent",
+      "leading_diamond": "",
+      "trailing_diamond": "",
+      "template": "{{ .HEAD }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}"
+    },
+    {
+      "type": "node",
+      "tips": [
+        "node",
+        "n"
+      ],
+      "style": "diamond",
+      "foreground": "#50fa7b",
+      "background": "transparent",
+      "leading_diamond": "",
+      "trailing_diamond": "",
+      "template": "{{ .Full }}"
     }
   ]
 }
