@@ -63,32 +63,6 @@
         "fetch_status": true,
         "fetch_upstream_icon": true
       }
-    },
-    {
-      "type": "pnpm",
-      "tips": [
-        "pnpm",
-        "p"
-      ],
-      "style": "diamond",
-      "foreground": "#50fa7b",
-      "background": "transparent",
-      "leading_diamond": "",
-      "trailing_diamond": "",
-      "template": "{{ .HEAD }}"
-    },
-    {
-      "type": "node",
-      "tips": [
-        "node",
-        "n"
-      ],
-      "style": "diamond",
-      "foreground": "#50fa7b",
-      "background": "transparent",
-      "leading_diamond": "",
-      "trailing_diamond": "",
-      "template": "{{ .Full }}"
     }
   ]
 }
